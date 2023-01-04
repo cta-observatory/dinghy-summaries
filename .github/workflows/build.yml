@@ -25,7 +25,7 @@ jobs:
 
       - name: Install dinghy
         run: |
-          python -m pip install -U dinghy
+          python -m pip install -U dinghy pyyaml
 
       - name: Build
         env:
