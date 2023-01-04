@@ -37,7 +37,7 @@ jobs:
       - name: Deploy to gihub pages
         # only run on main
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: JamesIves/github-pages-deploy-action@4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build
           single-commit: true
