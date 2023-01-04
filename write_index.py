@@ -34,6 +34,7 @@ footer = """
 with config_path.open("r") as f:
     config = yaml.safe_load(f)
 
+output_path.mkdir(exist_ok=True)
 
 digests = []
 

@@ -31,8 +31,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python -m dinghy
           python write_index.py
+          python -m dinghy
 
       - name: Deploy to gihub pages
         # only run on main
