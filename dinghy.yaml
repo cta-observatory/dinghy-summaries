@@ -1,0 +1,14 @@
+digests:
+  - digest: build/ctapipe_weekly.html
+    title: ctapipe Weekly Digest
+    since: 1 week
+    items:
+      - https://github.com/cta-observatory/ctapipe/issues
+      - https://github.com/cta-observatory/ctapipe/pulls
+
+  - digest: build/ctapipe_daily.html
+    title: ctapipe Daily Digest
+    since: 1 day
+    items:
+      - https://github.com/cta-observatory/ctapipe/issues
+      - https://github.com/cta-observatory/ctapipe/pulls
