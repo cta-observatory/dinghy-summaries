@@ -33,6 +33,7 @@ jobs:
         run: |
           python write_index.py
           python -m dinghy
+          touch build/.nojekyll
 
       - name: Deploy to gihub pages
         # only run on main
