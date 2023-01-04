@@ -5,7 +5,8 @@ on:
   pull_request:
   schedule: 
     - cron: '0 6 * * *' # every day at 6:00
-    - cron: '30 11 * * 5' # Fridays 11:30 (before the ctapipe meeting)
+    # Fridays, 9:45 and 10:45 UTC to have it up-to-date for the ctapipe meeting in CEST and CET
+    - cron: '45 9,10 * * 5'
 
 concurrency:
   group: "pages"
