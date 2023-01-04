@@ -41,7 +41,7 @@ digests = []
 for digest in config["digests"]:
     path = Path(digest["digest"]).relative_to(output_path)
     title = digest["title"]
-    digests.append(f'    <li><a href="/{path}">{title}</a></li>')
+    digests.append(f'    <li><a href="{path}">{title}</a></li>')
 
 digests = "\n".join(digests)
 
