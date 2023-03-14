@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>ctapipe Daily Digest
+   — 
+  Activity since 2023-03-13</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .boring > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.tag {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tag-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.commit {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-commit-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.release {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/package-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  </style>
+</head>
+<body>
+
+<h1>ctapipe Daily Digest
+   — 
+  Activity since 2023-03-13</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/cta-observatory/ctapipe">cta-observatory/ctapipe</a></span>
+      repo issues
+      </p>
+      
+        <p>Nothing happening</p>
+      
+    </li>
+  <li>
+      <p><span class="reponame"><a href="https://github.com/cta-observatory/ctapipe">cta-observatory/ctapipe</a></span>
+      repo pull_requests
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2265"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Fix HillasIntersection error for badly reconstructed events</b> #2265</a>
+              [gschwefer]
+
+              
+              </p><p>Fix for issue #2264. Events with large reconstructed angular distances from the camera center now return the INVALID...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2265#issuecomment-1466078206" title="03-13 12:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @gschwefer Could you add a change-log entry?
+Just create a file docs/changes/2265.bugfix.rst...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2286"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Add missing enter_context for TableLoader in train tools</b> #2286</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:0;--label-g:82;--label-b:204;--label-h:215;--label-s:100;--label-l:40;">maintenance</span>
+                <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2286#issuecomment-1466075857" title="03-13 12:43">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Fixes the &#34;Closing remaining open files&#34; warning in case of pre-mature exit (e.g. ctrl-c)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2286#pullrequestreview-1336969314" title="03-13 12:43">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>LukasNickel</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2286#pullrequestreview-1337050064" title="03-13 13:27">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Tobychev</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2261"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Fix wrong activity meta being written into output files</b> #2261</a>
+              [maxnoe]
+
+              
+              </p><p>This also adds the stop time.
+Fixes #2260</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2261#pullrequestreview-1336549222" title="03-13 09:25">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>LukasNickel</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2261#pullrequestreview-1337102558" title="03-13 13:58">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Tobychev</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2261#discussion_r1133978896" title="03-13 13:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Tobychev</b>: Since getting here is worth a warning, it is probably a good idea to give the activity a special...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2261#discussion_r1133992444" title="03-13 13:58">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Tobychev</b>: It is not clear to me why the code got moved from here to the entirely new...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2261#discussion_r1134056046" title="03-13 14:35">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: The difference is now we only do that in the methods that attach new information (add_config,...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2287"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Fix overwrite not working for ctapipe-apply-models</b> #2287</a>
+              [maxnoe]
+
+              
+              </p><p>Because there was no alias defined for the HDF5Merger component the --overwrite option had no effect for...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2287#issuecomment-1466199637" title="03-13 14:01">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Tobychev</b>: @maxnoe I edited the description with that I guessed the fix was, if you confirm the guess is...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2287#issuecomment-1466250692" title="03-13 14:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @Tobychev thanks, yes!</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2287#pullrequestreview-1337211858" title="03-13 14:39">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Tobychev</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2287#issuecomment-1466333220" title="03-13 15:09">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Because there was no alias defined for the HDF5Merger component the --overwrite option had no...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2287#issuecomment-1466340882" title="03-13 15:13">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Doesn&#39;t this mean that there simply wasn&#39;t an --overwrite option at all in the Tool? if so,...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2023-03-14 06:23 by
+  <a href="https://pypi.org/project/dinghy/1.2.0">
+    dinghy
+    <span class="dinghy_version">1.2.0</span></a>.
+</p>
+</body>
+</html>
