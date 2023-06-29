@@ -16,7 +16,7 @@ digests:
       - https://github.com/cta-observatory/ctapipe/pulls
 
   - digest: build/pyirf_weekly.html
-    title: ctapipe Weekly Digest
+    title: pyirf Weekly Digest
     section: pyirf
     since: 1 week
     items:
@@ -32,7 +32,7 @@ digests:
       - https://github.com/cta-observatory/pyirf/pulls
 
   - digest: build/pyeventio_weekly.html
-    title: ctapipe Weekly Digest
+    title: pyeventio Weekly Digest
     section: pyeventio
     since: 1 week
     items:
