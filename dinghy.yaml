@@ -14,3 +14,35 @@ digests:
     items:
       - https://github.com/cta-observatory/ctapipe/issues
       - https://github.com/cta-observatory/ctapipe/pulls
+
+  - digest: build/pyirf_weekly.html
+    title: ctapipe Weekly Digest
+    section: pyirf
+    since: 1 week
+    items:
+      - https://github.com/cta-observatory/pyirf/issues
+      - https://github.com/cta-observatory/pyirf/pulls
+
+  - digest: build/pyirf_daily.html
+    title: pyirf Daily Digest
+    section: pyirf
+    since: 1 day
+    items:
+      - https://github.com/cta-observatory/pyirf/issues
+      - https://github.com/cta-observatory/pyirf/pulls
+
+  - digest: build/pyeventio_weekly.html
+    title: ctapipe Weekly Digest
+    section: pyeventio
+    since: 1 week
+    items:
+      - https://github.com/cta-observatory/pyeventio/issues
+      - https://github.com/cta-observatory/pyeventio/pulls
+
+  - digest: build/pyeventio_daily.html
+    title: pyeventio Daily Digest
+    section: pyeventio
+    since: 1 day
+    items:
+      - https://github.com/cta-observatory/pyeventio/issues
+      - https://github.com/cta-observatory/pyeventio/pulls
