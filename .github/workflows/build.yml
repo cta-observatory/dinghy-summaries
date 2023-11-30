@@ -49,3 +49,5 @@ jobs:
         with:
           folder: build
           single-commit: true
+          git-config-name: cta-dinghy-bot
+          git-config-email: "<>"
