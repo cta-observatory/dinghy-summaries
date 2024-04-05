@@ -1,8 +1,8 @@
 digests:
   - digest: build/ctapipe_weekly.html
-    title: ctapipe Weekly Digest
+    title: ctapipe Bi-Weekly Digest
     section: ctapipe
-    since: 1 week
+    since: 2 weeks
     items:
       - https://github.com/cta-observatory/ctapipe/issues
       - https://github.com/cta-observatory/ctapipe/pulls
@@ -16,9 +16,9 @@ digests:
       - https://github.com/cta-observatory/ctapipe/pulls
 
   - digest: build/pyirf_weekly.html
-    title: pyirf Weekly Digest
+    title: pyirf Bi-Weekly Digest
     section: pyirf
-    since: 1 week
+    since: 2 weeks
     items:
       - https://github.com/cta-observatory/pyirf/issues
       - https://github.com/cta-observatory/pyirf/pulls
@@ -32,9 +32,9 @@ digests:
       - https://github.com/cta-observatory/pyirf/pulls
 
   - digest: build/pyeventio_weekly.html
-    title: pyeventio Weekly Digest
+    title: pyeventio Bi-Weekly Digest
     section: pyeventio
-    since: 1 week
+    since: 2 weeks
     items:
       - https://github.com/cta-observatory/pyeventio/issues
       - https://github.com/cta-observatory/pyeventio/pulls
