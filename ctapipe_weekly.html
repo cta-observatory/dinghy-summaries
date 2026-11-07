@@ -1,0 +1,2900 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>ctapipe Bi-Weekly Digest
+   — 
+  Activity since 2026-10-24</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  .navslugs {
+    margin-top: -1em;
+  }
+  .totop {
+    float: right;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .boring > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.tag {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tag-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.commit {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-commit-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.release {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/package-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  </style>
+</head>
+<body id="top">
+
+<h1>ctapipe Bi-Weekly Digest
+   — 
+  Activity since 2026-10-24</h1>
+
+
+  <p class="navslugs">»
+    <a href="#cta-observatoryctapipe">cta-observatory/ctapipe</a>&nbsp;|&nbsp;<a href="#cta-observatoryctapipe">cta-observatory/ctapipe</a></p>
+
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame" id="cta-observatoryctapipe"><a href="https://github.com/cta-observatory/ctapipe">cta-observatory/ctapipe</a></span>
+      repo issues
+      
+        <a class="totop" href="#top">[back to top]</a>
+      
+      </p>
+      
+        <ul class="entries">
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3002"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Update data product metadata to follow new CTAO model</b> #3002</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+We now have a new data products data model from CTAO, which...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3048"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>`DataWriter` writes all `obs_ids` into `metadata.Process.id_`, causing HDF5 attribute overflow for merged files</b> #3048</a>
+              [Hckjs]
+
+              <span class="label" style="--label-r:252;--label-g:41;--label-b:41;--label-h:0;--label-s:97;--label-l:57;">bug</span>
+                
+              </p><p>When running ctapipe-process on a merged simulation DL1 HDF5 file containing many (thousands of) observation IDs,...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3147"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Follow-up: Update temporary CTAO metadata defaults</b> #3147</a>
+              [Hckjs]
+
+              
+              </p><p>These are follow-ups to #3107 discussed here that depend on fixes in a future ctao-datamodel release:
+
+ Update the...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3152"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Tool to estimate the NSB level of an observation</b> #3152</a>
+              [aaguasca]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+To obtain a good agreement between the MC and real data,...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3151"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>ctapipe-process does not retain observed pointing monitoring tables in DL1 output</b> #3151</a>
+              [mdebony]
+
+              <span class="label" style="--label-r:252;--label-g:41;--label-b:41;--label-h:0;--label-s:97;--label-l:57;">bug</span>
+                
+              </p><p>Describe the bug
+ctapipe-process uses observed telescope pointing from HDF5MonitoringSource during processing but...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3151#issuecomment-6440810617" title="10-27 11:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mdebony</b>: I&#39;ve started to look at fixing it but they are quite important questions :
+
+Should we keep...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3151#issuecomment-6441088764" title="10-27 11:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I&#39;m not sure we want that really.
+What prevents us from using the HDF5MonitoringSource with the ...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3151#issuecomment-6443809061" title="10-27 13:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: I think just re-reading the monitoring file in the DL1→DL2 transition is ok, and saves quite a...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>HDF5MonitoringSource with only pointing information remove all camera monitoring information from other source</b> #3149</a>
+              [mdebony]
+
+              <span class="label" style="--label-r:252;--label-g:41;--label-b:41;--label-h:0;--label-s:97;--label-l:57;">bug</span>
+                
+              </p><p>Describe the bug
+HDF5MonitoringSource.fill_monitoring_container() replaces the entire camera-monitoring container,...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6440190652" title="10-27 10:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Populate an event with camera coefficients and pixel statistics.
+
+How do you do this if not with...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6442203018" title="10-27 12:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mdebony</b>: I originally spotted the issue when trying to use a pointing only HDF5MonitoringSource while...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6442241114" title="10-27 12:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Among other thing it was causing to loose the information about the mask for invalid...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6442249828" title="10-27 12:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Among other thing
+
+What other things? Because the invalid pixels should not longer be an issue.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6442368780" title="10-27 12:53">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mdebony</b>: I see the change in question on pixel status are in the main but not in 0.32 (the version I&#39;ve...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6443229846" title="10-27 13:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Does this mean that you load both pointing and camera calibration with the same...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3149#issuecomment-6446219708" title="10-27 15:33">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mdebony</b>: Does this mean that you load both pointing and camera calibration with the same...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/1225"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>add calib_scale as user option in SimTelEventSource</b> #1225</a>
+              [kosack]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                <span class="label" style="--label-r:64;--label-g:206;--label-b:149;--label-h:155;--label-s:59;--label-l:52;">physics</span>
+                <span class="label" style="--label-r:123;--label-g:201;--label-b:14;--label-h:85;--label-s:86;--label-l:42;">good first issue</span>
+                
+              </p><p>right now the R1 calibration applied to MC data is done in SimTelEventSource, upon reading.  However, after the...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3157"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Update MuonIntensityFitter to follow notation of reference paper</b> #3157</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+Muon calibration.
+Describe the solution you&#39;d like
+The...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3157#issuecomment-6604004803" title="11-03 12:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Side note: I thought I had created this issue already a long time ago, but couldn&#39;t find one. It...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3159"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Allow multiple aggregators in `ctapipe-compute-pixel-statistics`</b> #3159</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+Loading the data and chunking it are the expensive...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3160"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Compute quantiles to StatisticsAggregator</b> #3160</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+Extend the StatisticsAggregator to also compute...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3160#issuecomment-6631343746" title="11-04 13:03">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: Thanks for opening this issue. The other missing part of the statistics container is the number...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3161"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Refactor OptimizationResult</b> #3161</a>
+              [kosack]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Just to not forget this comment that I made in another PR:  The idea would be to have OptimizationResult contain the...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3164"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Define behavior for busy triggers (tels_with_trigger != tels_with_data) and test</b> #3164</a>
+              [maxnoe]
+
+              
+              </p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3165"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Resolve PendingDeprecationWarning: Argument &#34;writer_name&#34; will be removed in Docutils 2.0.</b> #3165</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+See:
+ ...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3163"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Update ToyEventSource to be actually useful</b> #3163</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+
+include trigger information
+include peak_time
+
+probably...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/issues/3163#issuecomment-6653566833" title="11-05 08:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Maybe we can also add a simple deadtime simulation (triggers with no event), and then we can use...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/1165"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Discussion on restructuring Event Container structure</b> #1165</a>
+              [kosack]
+
+              <span class="label" style="--label-r:29;--label-g:118;--label-b:219;--label-h:211;--label-s:76;--label-l:48;">discussion</span>
+                
+              </p><p>Since it&#39;s come up a few times that things in the current Event container structure are a bit haphazard, let&#39;s start...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/2170"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Rename  *Camera*Containers to *Telescope*Containers</b> #2170</a>
+              [StFroese]
+
+              
+              </p><p>Yes, I&#39;d go so far to rename most of the containers from camera to telescope. After all, we store them in .tel not...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/2374"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Should trigger / pointing information be stored into in dl0?</b> #2374</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:29;--label-g:118;--label-b:219;--label-h:211;--label-s:76;--label-l:48;">question</span>
+                <span class="label" style="--label-r:219;--label-g:120;--label-b:28;--label-h:28;--label-s:77;--label-l:48;">hdf5 data format</span>
+                
+              </p><p>At the moment we write the trigger information into the /dl1/event/{subarray,telescope} groups.
+However, this is...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/2952"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>R1/DL0 telescope event type is also stored in trigger.</b> #2952</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:252;--label-g:41;--label-b:41;--label-h:0;--label-s:97;--label-l:57;">bug</span>
+                
+              </p><p>Describe the bug
+We store the R1/DL0 telescope event type in three containers, R1, DL0 and TelescopeTrigger.
+To...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3133"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>NSBCleaner passes wrong shape picture threshold in case of dual gain camera</b> #3133</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:252;--label-g:41;--label-b:41;--label-h:0;--label-s:97;--label-l:57;">bug</span>
+                
+              </p><p>Describe the bug
+The picture threshold that ends up being passed to tailcuts_clean has the wrong shape, still...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/2603"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Reference metadata for machine learning models</b> #2603</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+We currently store machine learning models as pickle...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3167"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Do not create empty data level containers by default</b> #3167</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                
+              </p><p>Please describe the use case that requires this feature.
+The default of the DataLevel containers should be None to...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3168"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Add AGENTS.md</b> #3168</a>
+              [maxnoe]
+
+              
+              </p><p>More and more people rely on AI for contributions, we should add an AGENTS.md that provides guidance for...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/issues/3166"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>ctapipe-calculate-pixel-statistics ignores pixel_status</b> #3166</a>
+              [Voutsi]
+
+              <span class="label" style="--label-r:252;--label-g:41;--label-b:41;--label-h:0;--label-s:97;--label-l:57;">bug</span>
+                
+              </p><p>Describe the bug
+Pixels marked as invalid in pixel_status are aggregated by ctapipe-calculate-pixel-statistics like...</p></li>
+          </ul>
+      
+    </li>
+  <li>
+      <p><span class="reponame" id="cta-observatoryctapipe"><a href="https://github.com/cta-observatory/ctapipe">cta-observatory/ctapipe</a></span>
+      repo pull_requests
+      
+        <a class="totop" href="#top">[back to top]</a>
+      
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3107"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Update metadata to follow new CTAO data model</b> #3107</a>
+              [Hckjs]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                <span class="label" style="--label-r:217;--label-g:63;--label-b:11;--label-h:15;--label-s:90;--label-l:44;">API change</span>
+                <span class="label" style="--label-r:211;--label-g:21;--label-b:71;--label-h:344;--label-s:81;--label-l:45;">data model change</span>
+                <span class="label" style="--label-r:163;--label-g:222;--label-b:237;--label-h:192;--label-s:67;--label-l:78;">module:IO</span>
+                
+              </p><p>This PR migrates ctapipe’s data-product metadata handling to the official ctao-datamodel models.
+DataWriter and...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3107#pullrequestreview-5649675958" title="10-26 09:11">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3144"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Fix type promotion errors in numba signatures</b> #3144</a>
+              [maxnoe]
+
+              
+              </p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3144#pullrequestreview-5649738796" title="10-26 09:16">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3148"><span class="octicons" title="newly created; newly merged; merged pull request"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Isolate provenance state between tests</b> #3148</a>
+              [Hckjs]
+
+              <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                
+              </p><p>Make the existing provenance fixture autouse so every test starts with clean activity lists. This prevents the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3148#issuecomment-6415988560" title="10-26 12:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I think since this is now auto-use, it can be removed from all tests that use it explicitly.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3148#issuecomment-6416003883" title="10-26 12:28">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Since it&#39;s a singleton, the tests using the fixture should just call Provenance() directly.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3148#pullrequestreview-5651902931" title="10-26 12:42">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3148#pullrequestreview-5652146047" title="10-26 12:45">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>maxnoe</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3148#pullrequestreview-5654471829" title="10-26 15:22">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3053"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Adding calibration dataformat constants</b> #3053</a>
+              [juanpala1997]
+
+              <span class="label" style="--label-r:163;--label-g:222;--label-b:237;--label-h:192;--label-s:67;--label-l:78;">module:IO</span>
+                <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                <span class="label" style="--label-r:219;--label-g:120;--label-b:28;--label-h:28;--label-s:77;--label-l:48;">hdf5 data format</span>
+                
+              </p><p>This PR closes #3052
+It adds three new H5DF data format constants to ctapipe.io.hdf5dataformat</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3053#discussion_r3512301791" title="07-02 10:25">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>mexanick</b>: What&#39;s the plan of interfacing of this with existing atmospheric module?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3053#discussion_r4379066717" title="10-26 15:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Yes probably. It really just depends on the data format: monitoring files must follow a specific...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>Fix time chunking for ctapipe-calculate-pixel-statistics</b> #3143</a>
+              [maxnoe]
+
+              
+              </p><p>Codex solution to address #3141</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#pullrequestreview-5664445222" title="10-27 09:04">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>juanpala1997</b>: Thank you for this pull request, I think it is a nice implementation of time chunking for pixel...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386729875" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: I understand this is the intended behavior, including touching boundaries. Maybe we could add a...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386736590" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: Minor comment: Maybe this function can be placed outside the method to address the cognitive...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386743993" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: Minor comment: Maybe you could include both lengths in the error message for faster debugging of...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386749361" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: Here when no additional second-pass chunk exists, the aggregator is still run on one chunk and...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386756963" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: has_overlap should explicitly annotate return type -&gt; bool for consistency with the abstract property</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386767106" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: Is exact float equality robust enough after unit conversions? Maybe we should use tolerance here...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386782410" title="10-27 09:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>juanpala1997</b>: The explicit check that raised ToolConfigurationError for chunk_size &gt; len(table) has been...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3143#discussion_r4386889044" title="10-27 09:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: ToolConfigurationError shouldn&#39;t be thrown from lower-level components that might be used...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3150"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Preserve camera monitoring when applying a pointing-only source</b> #3150</a>
+              [mdebony]
+
+              
+              </p><p>Fixes #3149 .
+Update only monitoring fields supplied by HDF5MonitoringSource, preserving existing camera calibration...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3150#discussion_r4388120908" title="10-27 11:26">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I&#39;m not sure I would allow mixing camera calibrations like this from different sources. This...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2325"><span class="octicons" title="newly closed; draft closed pull request"><span class="octicon dash"></span><span class="octicon x"></span><span class="octicon draft closed pull"></span></span><b>Fix HDF5EventSource.__len__ if allowed_tels is not None</b> #2325</a>
+              [maxnoe]
+
+              
+              </p><p>One of the possible solutions for #2324, however, this performs a potentially expensive operation just to get the...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2156"><span class="octicons" title="newly closed; draft closed pull request"><span class="octicon dash"></span><span class="octicon x"></span><span class="octicon draft closed pull"></span></span><b>Build on windows</b> #2156</a>
+              [kosack]
+
+              <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                
+              </p><p>Just a quick test to see what breaks if ctapipe is installed in windows...
+If it&#39;s not too much, I will try to fix...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2774"><span class="octicons" title="newly closed; draft closed pull request"><span class="octicon dash"></span><span class="octicon x"></span><span class="octicon draft closed pull"></span></span><b>Acada lst integration tests</b> #2774</a>
+              [maxnoe]
+
+              
+              </p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2731"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add a StereoDispCombiner</b> #2731</a>
+              [Hckjs]
+
+              <span class="label" style="--label-r:14;--label-g:138;--label-b:22;--label-h:123;--label-s:81;--label-l:29;">enhancement</span>
+                <span class="label" style="--label-r:155;--label-g:252;--label-b:103;--label-h:99;--label-s:96;--label-l:69;">algorithm</span>
+                <span class="label" style="--label-r:163;--label-g:222;--label-b:237;--label-h:192;--label-s:67;--label-l:78;">module:reco</span>
+                
+              </p><p>This is basically the StereoCombiner already implemented here
+in magic-cta-pipe.
+It combines the mono DISP...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3154"><span class="octicons" title="newly created; newly merged; merged pull request"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Remove workaround for blocked objects.inv</b> #3154</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                
+              </p><p>DESY adjusted rules, access now works.
+Also replaces SkyCoord.from_name calls in the docs as the data servers are...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3154#pullrequestreview-5696622378" title="10-29 11:00">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3154#pullrequestreview-5734274398" title="11-02 09:14">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3155"><span class="octicons" title="newly created; newly merged; merged pull request"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Add fram container</b> #3155</a>
+              [Voutsi]
+
+              
+              </p><p>Add FRAM monitoring container</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3155#pullrequestreview-5735272265" title="11-02 10:37">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>mexanick</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3155#issuecomment-6575042566" title="11-02 10:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: merging it to a branch with more containers immediately to keep things together</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Add calibration_scales config option to CameraCalibrator</b> #3129</a>
+              [maxnoe]
+
+              
+              </p><p>Closes #1225
+Let me summarize a discussion between @moralejo, @FrancaCassol and me.
+At the moment, LST R1...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#discussion_r4375723229" title="10-26 09:29">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b>: SimTelEventSource also has a calib_scale (and calib_shift) parameter to correct for e.g. the...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#discussion_r4375737408" title="10-26 09:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I think we should probably remove the SimTelEventSource option? To have a single option in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#discussion_r4375949264" title="10-26 09:57">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: yes, I was also going to suggest just dropping the old one if this is sufficient to supercede...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#discussion_r4376028811" title="10-26 10:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: It does remind me that we do need to think about the actual ratio between MC and instrument p.e....</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#discussion_r4377759483" title="10-26 13:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: done</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#pullrequestreview-5627149615" title="10-26 12:37">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: Loooks good. About the description, &#34;per channel&#34; may be misinterpreted as being also...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#pullrequestreview-5654450129" title="10-26 15:20">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3129#pullrequestreview-5665438874" title="10-27 10:16">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3158"><span class="octicons" title="newly created; newly merged; merged pull request"><span class="octicon star"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Disable vizier test, service unavailable</b> #3158</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                
+              </p><p>Adds the marker to the last remaining job that still ran it, as the service is currently down following a...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3158#pullrequestreview-5753142115" title="11-03 13:39">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153"><span class="octicons" title="newly created; draft pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>Add EstimateNSBlevelTool to estimate the NSB level of an observation</b> #3153</a>
+              [aaguasca]
+
+              
+              </p><p>This PR addresses issue #3152.
+The median of the waveform variance (VarianceExtractor) is used to define outliers...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410197808" title="10-29 08:36">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: Improve phrasing,  e.g.  &#34;...defined as the number of (randomly selected) NSB-only waveforms...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410210246" title="10-29 08:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: If you prefer to keep the multiplicative factor, just rephrase the comment in a more clear way.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4412459925" title="10-29 12:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Thank you for the feedback. Your phrasing is more accurate.
+
+And in that example, the number...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4413628542" title="10-29 14:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: If the waveform from simulation_file is combined with the NSB-only waveforms (as commented...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410218754" title="10-29 08:37">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: Phrasing,  &#34;...settings as the MC file to which the NSB is being added.&#34;</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410249714" title="10-29 08:41">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: Clarify that the different NSB levels are obtained by combining waveforms from the NSB-only file...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4413557821" title="10-29 14:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: The tool does not combine the 0-Cherenkov-photon waveforms from simulation_file with NSB-only...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410284617" title="10-29 08:45">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: Is this for the target file? Why so low? Since we determine an average diffuse nsb we have...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4413636094" title="10-29 14:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Yes, this is for the target file. I forgot to increase the value. Sorry. By default, I set it to 100.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410303821" title="10-29 08:48">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: unfinished comment</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410913976" title="10-29 09:55">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: I would add something like: This is intended to enable the processing of simulation files...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4413774643" title="10-29 14:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: If we can use simulated pedestals (see comment from Max below), we could directly use the same...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6493610926" title="10-29 09:57">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @aaguasca
+Thank you for this pull request! While I think the implementation on its own looks ok,...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6493625665" title="10-29 09:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: In general, I think it would be a better approach to discuss such design questions first in an...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6493660791" title="10-29 10:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This could for example be a histogram of the pedestal charges (via the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4410979525" title="10-29 10:02">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Shouldn&#39;t the input file here be pedestal simulations with the same noise as the air shower simulations?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4412672724" title="10-29 13:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Ideally yes. I thought there was no file available with these characteristics (NSB + electronic...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4412701233" title="10-29 13:10">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: We produce these files anyway. Prod6 specificially fixed instrument seeds for chunks of runs to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4413077083" title="10-29 13:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: If these files are produced, we should use them here. Thank you for the information.
+Is it...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4414179725" title="10-29 15:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: We have one file for LST in the calibpipe test data...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4411184518" title="10-29 10:27">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: Specify that pixel_data contains tel_id-wise waveforms, of shape (n_events, n_pixels) ?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4411342621" title="10-29 10:42">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>moralejo</b>: More clear if order is inverted, or explicity written Var(target) / Var(NSB-only simulation)</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4411378111" title="10-29 10:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: On the other hand, I see some potential for confusion here, because the target (and the baseline...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4411438915" title="10-29 10:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: Perhaps, rather that the ratio of target to nsb_only, one could use the difference (median...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6497870960" title="10-29 13:23">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: I would like see if we could avoid that, e.g. by including the necessary information in the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6500065935" title="10-29 14:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: In general, I think it would be a better approach to discuss such design questions first in an...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6573512449" title="11-02 09:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Looks like  good start!
+I also agree that the identification of noisy pixels is something that...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6573935903" title="11-02 09:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: : a tool to use the pedestal variances to produce a monitoring table of excluded pixels that you...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6573983889" title="11-02 09:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: In your proposed approach one can run calibpipe on pedestals using the extractor for showers,...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6574379916" title="11-02 10:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: CalibPipe wouldn&#39;t really need to know about the DataPipe extractor. The DPPS operator would...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6574461122" title="11-02 10:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Is there something similar already defined in the calibpipe outputs?
+
+Currently not, but ctapipe...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6574501157" title="11-02 10:11">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Another point is also time variability. calibpipe does the analysis in chunks, configurable by...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6575238536" title="11-02 10:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: I agree with @maxnoe, we should split this tool into two parts: first, run the pixel statistics...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6579154242" title="11-02 14:05">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Thank you very much for all the feedback @kosack, @maxnoe, @mexanick, and @moralejo.
+If I...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4444493723" title="11-02 15:51">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I was confused why we read the noise events here with EventSource. It&#39;s not actually used at...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4448949553" title="11-02 23:18">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Yes, you are right. I am sorry.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4444539723" title="11-02 15:54">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Why a parabola? Shouldn&#39;t the pedestal variance grow linearly?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4448904118" title="11-02 23:12">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: The fit is performed using the 90th quantile, not the variance. I think the 90th quantile of the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4456473781" title="11-03 15:05">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: The x-axis is actually the total noise level, right? (it starts at 4 which is 100%, i.e. default...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#discussion_r4456665195" title="11-03 15:20">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: The x-axis quantity refers to the number of randomly-selected NSB-only waveforms simulated with...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6608740207" title="11-03 15:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Please let me know if the tool design discussed in my previous message (#3153 (comment)) matches...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6609925598" title="11-03 16:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: 2- CalibPipe executes ctapipe-calculate-pixel-statistics on interleaved pedestals: it identifies...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6626079547" title="11-04 08:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>aaguasca</b>: Thank you, @maxnoe, for the explanation and for sharing the file.
+I suppose the procedure to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6626718100" title="11-04 08:53">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Yes, I think we should assume here for this tool that we get either the histogram or the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6626990103" title="11-04 09:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>moralejo</b>: I am fine with the approach of implementing this using the currently existing pedestal...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6627337738" title="11-04 09:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: I am fine with the approach of implementing this using the currently existing pedestal...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6627598970" title="11-04 09:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I think we need will need the full histogram in future anyway, and it will be very nice for...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6627727732" title="11-04 09:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Even with full histograms, I think the size will not exced tens of MB, so I think it&#39;s worth having.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3153#issuecomment-6627690178" title="11-04 09:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: So while I think adding the 90 % (or other helpful quantiles), we should also just include a...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3066"><span class="octicons" title="newly closed; closed pull request"><span class="octicon dash"></span><span class="octicon x"></span><span class="octicon closed pull"></span></span><b>Add simple pointing calibrator</b> #3066</a>
+              [mexanick]
+
+              
+              </p><p>Adding a simple pointing calibrator that combines raw structure pointing with structure displacement...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3066#issuecomment-6681842920" title="11-06 09:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: Not needed, as this would be implemented in the monitoring source</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3119"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add effective area 3D maker</b> #3119</a>
+              [hluciani]
+
+              
+              </p><p>Add EffectiveArea3DMaker to ctapipe for producing effective areas binned in true energy, field-of-view longitude,...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3119#issuecomment-6603640787" title="11-03 12:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Feedback received has been implemented, ready for another review
+
+Hi, the tests are failing,...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>First step of implementing CEP-002: Change container structure</b> #2204</a>
+              [maxnoe]
+
+              
+              </p><p>Closes #1165
+Closes #2170
+Closes #2374
+Closes #2952</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5366874472" title="10-26 11:03">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5376416919" title="10-26 11:03">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>mexanick</b>: Thanks a lot! Overall, this looks good to me. I’ve left a few inline comments, but since they...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#issuecomment-6415284160" title="10-26 12:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Hckjs</b>: I think the failing tests are due to globally active Provenance-Activities. The DataWriter is...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#issuecomment-6420640547" title="10-26 15:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @kosack I notice there is an inconsistency in the container names.
+Sometimes it is:
+-...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#issuecomment-6578816129" title="11-02 13:51">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: @kosack I notice there is an inconsistency in the container names.
+Which do you prefer?
+
+It...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#issuecomment-6608459109" title="11-03 15:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @kosack updated to have Subarray and Telescope first in the names consistently</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5771881194" title="11-04 16:33">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470255686" title="11-04 16:33">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kosack</b>: What about tels with trigger, but no data? Do those still appear in the list here?  In...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470368490" title="11-04 16:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: We don&#39;t have examples for this.
+I would expect an event source to create a TelescopeEvent, fill...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470610453" title="11-04 16:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Yes, we then need a test that can be run on all relevant EventSources to check that they do the...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470274339" title="11-04 16:33">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kosack</b>: Though here I also worry about tels_with_trigger but no data... does this still work?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470357524" title="11-04 16:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: We might need to add a test that has fake deadtime to test this, since I guess the simulations...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470398249" title="11-04 16:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: &#34;Still work&#34; is hard to say, as we do not have any tests for that and I&#39;m not sure it worked...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470547248" title="11-04 16:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: For now, mono processing only looks at the telescope file when using the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470562237" title="11-04 16:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Yeah, I suspect it was a bit broken even before. It only made me think about it when seeing that...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470666515" title="11-04 17:04">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: #3164</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470210954" title="11-04 16:41">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>kosack</b>: Should probably also set event.tel[tel_id].index and include the tel_id here to be...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470475525" title="11-04 16:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Done, but the ToyEventSource needs larger updates independent of this PR, I&#39;d leave the rest for...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4470505431" title="11-04 16:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: #3163</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5771665865" title="11-04 16:47">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5782852864" title="11-05 10:25">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4478875283" title="11-05 10:25">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: With the new structure, the DataWriter now does not check whether there are r1 waveforms in the...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4479394916" title="11-05 10:37">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I think this hints add a deeper issue here. The default should probably be None, not an empty...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4480197455" title="11-05 12:05">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I fixed the particular issue by only applying the shape backwards compatibility fix if the...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4479127651" title="11-05 10:25">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: These are now all drawn onto that earlier disp init&#39;ed at the very beginning while the subplots...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#discussion_r4480214625" title="11-05 12:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: restored the disp init.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5772371054" title="11-05 12:04">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5784747763" title="11-05 12:14">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/2204#pullrequestreview-5798808883" title="11-06 10:24">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3116"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Restore logging config in run_tool after tool is finished</b> #3116</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:146;--label-g:200;--label-b:176;--label-h:153;--label-s:32;--label-l:67;">no-changelog-needed</span>
+                
+              </p><p>Closes #3115</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3116#issuecomment-6683073710" title="11-06 10:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: The tests here now fail for a test that uses a tool within a tool. This is not used anywhere in...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>DL3 Event List with EventPreprocessor</b> #3004</a>
+              [kosack]
+
+              
+              </p><p>This adds a FeatureSet to the EventPreprocessor for transforming DL2 to DL3 observed events.  This is a...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r3342791139" title="06-02 16:28">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Wouldn&#39;t it be better to return the SkyCoord object and then do coord.ra.to(u.deg) in the...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4468039189" title="11-04 13:23">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: Now it uses SkyCoords, and also fixed the sign of FOV_LON (which is actually not an allowed GADF...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4457548374" title="11-03 16:30">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I think we should always include the ErfaAstromInterpolator here with the context manager.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4466287744" title="11-04 10:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: What is the recommended resolution value to use?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4466306500" title="11-04 10:18">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: 5 or 10 min works well I think. It should probably be configurable, but at the moment, we do not...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4466401585" title="11-04 10:30">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: For now I&#39;ll add it as a config parameter of the EventPreprocessor</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4466928476" title="11-04 11:35">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Wrong unit here, should be min.
+Seems my comments were lost due to github incident. Not sure if...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4468065775" title="11-04 13:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: fixedfixed</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#issuecomment-6634521232" title="11-04 15:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: @mdebony let met know if this is sufficient, and we can merge it and then start using it in the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3004#discussion_r4491684293" title="11-06 10:57">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: The valid/invalid handling here and the re-creation of the SkyCoord looses frame attributes...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Gain select monitoring quantities in HDF5MonitoringEventSource</b> #3136</a>
+              [maxnoe]
+
+              
+              </p><p>This is an alternative approach to solving #3133 by ensuring the monitoring source already gain selects the data for...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5584546874" title="10-27 09:52">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5666546036" title="10-27 12:27">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#discussion_r4388293804" title="10-27 12:27">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: its already declared below with
+pixel_status = pixel_status_field()
+isnt it?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#discussion_r4388683887" title="10-27 12:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Yes, merge conflict, thanks for spotting</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#discussion_r4388624477" title="10-27 12:27">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: I&#39;m not quite sure, but will this line be reached during processing of r1/dl0 single-gain...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#discussion_r4388805379" title="10-27 12:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This line will be hit for pixel_statistics in the case of gain selected data of dual gain...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5666782747" title="10-27 12:33">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>mexanick</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5667292326" title="11-06 10:34">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5669276021" title="11-06 10:34">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5669538418" title="11-06 10:34">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>mexanick</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5799123242" title="11-06 10:55">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5799186362" title="11-06 11:01">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>mexanick</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3136#pullrequestreview-5799233587" title="11-06 11:05">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Use bagit-compatible zipfiles to write reconstructor models per telescope</b> #3120</a>
+              [maxnoe]
+
+              
+              </p><p>zipfiles allow efficient writing and reading of model files
+zipfiles allow adding additional files like meta.json...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#issuecomment-6445291782" title="10-27 14:56">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: This also Closes #2603</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#issuecomment-6583966432" title="11-02 17:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I now updated this to
+
+use bagIt inside the zipfile (so we also store hashes of the payload...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5750611145" title="11-03 10:41">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5766068283" title="11-04 10:23">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4465785346" title="11-04 10:23">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: Its maybe a bit clearer to write the model version as module constant, so one can find it more...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466076714" title="11-04 10:23">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: We need to check for the old dataformat here aswell, dont we? Otherwise it will raise an error...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466529141" title="11-04 10:46">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This should just keep using self.read I think now.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466168192" title="11-04 10:23">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: overwrite needs to be forwarded right?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466218515" title="11-04 10:23">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: i cant find the _read_compressed_joblib-function. --&gt; read_joblib?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466950212" title="11-04 11:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This is dead code at the moment, it was in preparation for loading only individual models, but...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466343919" title="11-04 10:23">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>Hckjs</b>: If you only set the input_path traitlet in the configuration, it will be overriden by the...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5754133782" title="11-04 11:40">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#issuecomment-6629645901" title="11-04 11:40">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @codex review</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5767644365" title="11-04 11:43">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>chatgpt-codex-connector</b>: 💡 Codex Review
+Here are some automated review suggestions for this pull request.
+Reviewed...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4466995500" title="11-04 11:43">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>chatgpt-codex-connector</b>: Point the deprecation warning to the actual writer
+When callers use DispReconstructor.write(),...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4467557225" title="11-04 12:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Leftover, fixed by using new BagitWriter here.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#issuecomment-6631740877" title="11-04 13:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @codex review</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5769089841" title="11-04 13:25">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>chatgpt-codex-connector</b>: 💡 Codex Review
+Here are some automated review suggestions for this pull request.
+Reviewed...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4468058780" title="11-04 13:25">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>chatgpt-codex-connector</b>: Abort rather than finalize failed archives
+When model training or setup raises after the writer...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4469672048" title="11-04 15:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I think it&#39;s preferable to have an incomplete but valid output file and record it. The error...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4468058801" title="11-04 13:25">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>chatgpt-codex-connector</b>: Reset estimator parallelism before serialization
+When EnergyRegressor.n_jobs is configured, this...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#discussion_r4469659238" title="11-04 15:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Removed re-setting n_jobs in train scripts, apply-models does it for inference.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5783759709" title="11-06 10:46">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5788036717" title="11-06 10:46">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Hckjs</b>: Just as a small side note:
+Since the DataWriter._get_input_product is searching for metadata in...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5799044461" title="11-06 10:47">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3120#pullrequestreview-5799245121" title="11-06 11:07">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Hckjs</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2489"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>Propose CEP-4: module structure</b> #2489</a>
+              [maxnoe]
+
+              
+              </p><p>Hi all,
+I made a first rough draft of CEP-4, to address the module structure. Please comment on the proposed modules.</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/2780"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add a component to reduce waveform readout window</b> #2780</a>
+              [maxnoe]
+
+              
+              </p><p>The question is now where to best apply this.
+I see a couple of options:
+
+Add directly to ctapipe-process, this...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add mirror facet info optics</b> #3085</a>
+              [burmist-git]
+
+              
+              </p><p>sst.pdf
+mst.pdf
+lst.pdf
+Relevant discussions and useful...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6573434703" title="11-02 09:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Hi,
+I uploaded the optics tables from the 1.0 tag of the exporter script, I put them in a...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6573445861" title="11-02 09:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: The CI failure should be fixed now, the HPIERS website is online again.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6573531978" title="11-02 09:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: I forced the test to be rerun.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6573912248" title="11-02 09:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: You will need to update here anyways to use the new test data files.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6574561108" title="11-02 10:13">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: @maxnoe, why do we have two LSTN-01.tel_optics.ecsv and LSTN-02.tel_optics.ecsv files?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6574592555" title="11-02 10:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @maxnoe, why do we have two LSTN-01.tel_optics.ecsv and LSTN-02.tel_optics.ecsv files?
+
+I added...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6575362188" title="11-02 10:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>orelgueta</b>: @maxnoe, why do we have two LSTN-01.tel_optics.ecsv and LSTN-02.tel_optics.ecsv files?
+
+I added...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6575408425" title="11-02 10:57">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Yes, sure, but is this relevant? I.e. do we need those other files for testing here?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6575835290" title="11-02 11:19">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>orelgueta</b>: Yes, sure, but is this relevant? I.e. do we need those other files for testing here?
+
+That&#39;s for...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6582149921" title="11-02 16:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Thanks, I think for the tests here the examples I uploaded to the test data server are...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#pullrequestreview-5750957142" title="11-03 10:57">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>maxnoe</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#pullrequestreview-5751953132" title="11-03 12:13">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>Voutsi</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3085#issuecomment-6683933827" title="11-06 11:38">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @burmist-git The test failure should be fixed by updateing with main</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add a few containers for monitoring data</b> #3063</a>
+              [mexanick]
+
+              
+              </p><p>Containers implementation for #3055</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r3988170727" title="09-11 10:15">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Why is this container not added to the event?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4492281262" title="11-06 12:14">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: It would also be needed to transform the star positions into the TelescopeFrame, if you&#39;d want...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4491082473" title="11-06 09:44">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I&#39;m not sure it is a good idea to store a relative correction, in isolation, it leaves it...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4491353029" title="11-06 10:17">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: Switched to store corrected coordinates. Now we have three containers that are almost identical,...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4491105993" title="11-06 09:47">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Is this just to create a new default prefix and different descriptions of the fields? In itself,...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4491267447" title="11-06 10:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: This is to keep the Structure pointing as reported by the telescope. While LST actually has more...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4492296013" title="11-06 12:15">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Any reason to put this here at the top-level and not into the CameraMonitoringContainer?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3063#discussion_r4492346208" title="11-06 12:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: Well, it is somewhat pointing-related too, but I agree with you, it logically belongs to...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Do not add empty defaults into event, split DL0</b> #3169</a>
+              [maxnoe]
+
+              <span class="label" style="--label-r:186;--label-g:26;--label-b:84;--label-h:338;--label-s:75;--label-l:41;">Breaking change</span>
+                <span class="label" style="--label-r:211;--label-g:21;--label-b:71;--label-h:344;--label-s:81;--label-l:45;">data model change</span>
+                
+              </p><p>Follow-up to the discussion in #2204
+Closes #3167
+
+The defaults of the data level containers in...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#issuecomment-6685962951" title="11-06 13:29">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: @codex review</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#pullrequestreview-5800757092" title="11-06 13:32">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>chatgpt-codex-connector</b>: 💡 Codex Review
+Here are some automated review suggestions for this pull request.
+Reviewed...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#discussion_r4492938201" title="11-06 13:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>chatgpt-codex-connector</b>: Preserve DL2 containers for telescopes without tables
+When an HDF5 telescope-level DL2 algorithm...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#discussion_r4493545324" title="11-06 14:35">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: I think this is a broken file and should not happen and thus an exception is ok. If DL2 was...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#pullrequestreview-5801384768" title="11-06 14:19">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>kosack</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#issuecomment-6687030030" title="11-06 14:23">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>kosack</b>: This might also relate to the #3164  None could mean no data, but an empty could be trigger with...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3169#issuecomment-6687320182" title="11-06 14:34">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This might also relate to the #3164 None could mean no data, but an empty could be trigger with...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3170"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Add field SubarrayTriggerContainer.tels_with_data</b> #3170</a>
+              [maxnoe]
+
+              
+              </p><p>Add tels_with_data, in line with the DL0 data model
+If present, it is the main source to determine which telescopes...</p></li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>muon bandwidth</b> #3156</a>
+              [burmist-git]
+
+              
+              </p><p>Closes  #3157</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#issuecomment-6636539764" title="11-04 16:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Voutsi</b>: Hi @burmist-git, thanks for this PR.
+A first comment before going into details into the review....</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4478683757" title="11-05 09:26">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: wavelength parameters are now unused and should be removed.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4479264653" title="11-05 10:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: Yes, only if we are not adding efficiency to the output. Please let me know your reaction to...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4478687219" title="11-05 09:26">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Initial guess should be updated to reflect the expected values</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4479266651" title="11-05 10:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: Sure</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#issuecomment-6657069326" title="11-05 11:41">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: A first comment before going into details into the review. According to the discussions and the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#issuecomment-6658427380" title="11-05 12:50">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Voutsi</b>: A first comment before going into details into the review. According to the discussions and the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#issuecomment-6658528852" title="11-05 12:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: @Voutsi @maxnoe To wrap it up, I am removing this from here and revising the Level C requirements.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4490865367" title="11-06 09:19">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Voutsi</b>: The renaming requires a change in the datamodel, v0.7.7 -&gt; v0.7.8</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4490932152" title="11-06 09:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This is a breaking change, so the major version should be bumped</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4490999944" title="11-06 09:34">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: With the comment below on keeping the original container definition, we could keep the...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4490885589" title="11-06 09:21">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Voutsi</b>: I am curious, why the change in tolerance here?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4491063495" title="11-06 09:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: I makes it more stable</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4491156152" title="11-06 09:53">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: It increases the tolerance, it doesn&#39;t make it more stable.
+See e.g. also #2425</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#issuecomment-6681606865" title="11-06 09:25">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Voutsi</b>: Looks good to me, please find couple of comments inline.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4490992989" title="11-06 09:33">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I would suggest to keep the MuonEfficiencyContainer unchanged and add a MuonBandwidthContainer...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4491076342" title="11-06 09:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>burmist-git</b>: That&#39;s a great suggestion. Thank you!</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4491214307" title="11-06 10:00">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Could we add the conversion between efficiency and bandwidth as free functions to...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4491221462" title="11-06 10:01">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Always do unit conversions last to check that it is actually consistent,...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4494914216" title="11-06 16:31">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I think this returns invalid units, since you convert to u.m, but use the unitless constants from scipy.</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3156#discussion_r4495026730" title="11-06 16:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Also, where does the e come from? I don&#39;t see it anywhere appearing in the formulas of the muon paper...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Extend the statistics container</b> #3162</a>
+              [mexanick]
+
+              
+              </p><p>Closes #3160
+
+Extend the statistics container with quantiles
+Update the ChunkStatisticsContainer to composition...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#pullrequestreview-5772296264" title="11-04 16:53">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>copilot-pull-request-reviewer</b>: 🟡 Changes recommended
+Unresolved issues drop units from new statistics, cause masked integer...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4470538976" title="11-04 16:53">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>copilot-pull-request-reviewer</b>: self.columns is shared across telescopes, so adding a quantile-enabled table after a legacy...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4479084328" title="11-05 10:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: mixed-schemas in one processing should never happen.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4470565466" title="11-04 16:55">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: Do we really need the iqr when we have both quantiles it is derived from and the FeatureGenerator?</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4479088487" title="11-05 10:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: indeed, that&#39;s not really needed. I remove it.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4479533698" title="11-05 10:54">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>kosack</b>: Why composition here and not inheritance like we do elsewhere?
+We don&#39;t support writing/reading...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4479585563" title="11-05 10:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Or we need to do
+table_writer.write(path, (chunk_container, chunk_container.stats))
+
+when...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4480346602" title="11-05 12:20">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: Composition in lieu of inheritance is to avoid diamond inheritance for the...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4480384887" title="11-05 12:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: Does multiple inheritance not work here?
+class ChunkContainer(Container):
+    start =...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4480398944" title="11-05 12:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: ok, no, it does not... I thought this was implemented.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4480406739" title="11-05 12:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: In this case, I would propose to define the common chunk fields as other common field...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4480474369" title="11-05 12:35">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>maxnoe</b>: This being python, there is always a way...
+import numpy as np
+from ctapipe.core import...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4480491308" title="11-05 12:35">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>mexanick</b>: cat test_diamond_inheritance_containers.py
+from ctapipe.core.container import Container,...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#discussion_r4482387691" title="11-05 15:27">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b>: I think the correct idiom here is:
+if h5file is not None:
+    kwargs[&#34;h5file&#34;] =...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/cta-observatory/ctapipe/pull/3162#pullrequestreview-5798356237" title="11-06 17:15">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>maxnoe</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2026-11-07 12:43 by
+  <a href="https://pypi.org/project/dinghy/1.4.1">
+    dinghy
+    <span class="dinghy_version">1.4.1</span></a>.
+</p>
+</body>
+</html>
